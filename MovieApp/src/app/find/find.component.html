@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="col-md-6">
+        <div class="row">
+        <h1>Find a movie</h1>
+<p>search for movies using the form below:</p>
+<form [formGroup]="findMovieForm"
+(ngSubmit)="sendToAPI(findMovieForm.value)">
+    <div class="form-group">
+<input 
+class="form-control" 
+type="text" 
+ formControlName="movie"
+ [(ngModel)]="input"
+ ngModelOption="{standalone}">
+ <p>{{input}}</p>
+</div>
+<div>
+<button type="submit" 
+class="btn btn-success">Search</button>
+</div>
+</form>
+</div><div>
+    </div>
+   <div class="col-md-6">
+    <h3>Movie details</h3>
+    <p>adult:{{this.movieData?.adult}}</p>
+    <p>backdrop_path:{{this.movieData?.backdrop_path}}</p>
+    <p>belongs_to_collection:{{this.movieData?.belongs_to_collection}}</p>
+    <p>budget:{{this.movieData?.budget}}</p>
+    <p>genres:{{this.movieData?.genres}}</p>
+    <p>homepage:{{this.movieData?.homepage}}</p>
+    <p>id:{{this.movieData?.id}}</p>
+    <p>imdb:{{this.movieData?.imdb_id}}</p>
+    <p>original_language:{{this.movieData?.original_language}}</p>
+    </div>

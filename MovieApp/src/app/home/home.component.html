@@ -1,0 +1,47 @@
+<h1>POPULAR MOVIES</h1>
+<div class="row">
+    <div class="col-xs-6">
+<a href="#"
+class="list-group-item clearfix"
+*ngFor="let model of model">
+
+<div class="pull-left">
+<h4 class="list-group-item-heading"><span>Title:</span>{{model.name|uppercase}}</h4>
+<p class="list-group-item-text"><span>description:</span>{{model.description}}</p>
+<p class="list-group-item"><span>Release year:</span>{{model.releaseYear}} </p>
+
+</div>
+<span class="pull-right">
+    <img 
+    [src]="model.imagePath"
+    alt="{{model.name}}"
+    class="img-responsive"
+    style="max-height:200px;">
+</span>
+</a>
+</div></div>
+<hr>
+<h1>THEATRE MOVIES</h1>
+
+<div class="row">
+        <div class="col-xs-6">
+    <a href="#"
+    class="list-group-item clearfix"
+    *ngFor="let model of model">
+    
+    <div class="pull-left">
+    <h4 class="list-group-item-heading"><span>Title:</span>{{model.name}}</h4>
+    <p class="list-group-item-text"><span>description:</span>{{model.description}}</p>
+    <p class="list-group-item"><span>Release Year:</span>{{model.releaseYear}} </p>
+    
+    </div>
+    <span class="pull-right">
+        <img 
+        [src]="model.imagePath"
+        alt="{{model.name}}"
+        class="img-responsive"
+        style="max-height:200px;">
+    </span>
+    </a>
+    </div></div>
+    <p>2010 collection</p>
