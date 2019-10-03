@@ -1,30 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder,FormGroup} from '@angular/forms';
+import { Component, OnInit ,Input} from '@angular/core';
 import { ApiService } from '../api.service';
-@Component({
+  import {FormBuilder,FormGroup} from '@angular/forms';
+  @Component({
   selector: 'app-find',
   templateUrl: './find.component.html',
   styleUrls: ['./find.component.css']
 })
 export class FindComponent implements OnInit {
-  input="";
-  public findMovieForm:FormGroup;
-  public movieData:any=[];
-
-  constructor(private formBuilder:FormBuilder,
-              private apiservice:ApiService) { }
+form:FormGroup;
+movie:[];
+  constructor(private apiservice:ApiService,
+    private fb:FormBuilder) {
+}
+  
 
   ngOnInit() {
-    this.findMovieForm=this.formBuilder.group({
-      movie:['']
-
+    this.form=this.fb.group({
+      movies:[""]
     });
   }
-  sendToAPI(formValues){
-this.apiservice.getMovie(formValues.movie).subscribe(data=>
-  {this.movieData=data;
-  console.log(this.movieData);
-  });
+  onsubmit(){
+    this.apiservice.search().subscribe((data:any)=>
+    {
+      this.movie=data.results;
+      console.log(this.movie);
+    });
+  }
   }
 
-}

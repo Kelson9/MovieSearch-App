@@ -9,12 +9,18 @@ import { HomeComponent } from './home/home.component';
 import { FindComponent } from './find/find.component';
 import { HeaderComponent } from './header/header.component';
 import {ApiService} from './api.service';
+import { PopularmoviesComponent } from './home/popularmovies/popularmovies.component';
+import { TheatremoviesComponent } from './home/theatremovies/theatremovies.component';
+import { ViewComponent } from './view/view.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FindComponent,
-    HeaderComponent
+    HeaderComponent,
+    PopularmoviesComponent,
+    TheatremoviesComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,
