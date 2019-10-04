@@ -2,21 +2,30 @@
     <div class="card-body">
         <h1>Find a movie</h1>
 <p>search for movies using the form below:</p>
-<form [formGroup]="form" (ngsubmit)="onsubmit()">
+<form [formGroup]="form" (ngSubmit)="onsubmit(form.value)">
     <div class="form-group">
 <input  
+class="form-control"
 type="text"
 id="movies"
-formControlName="movies">
+formControlName="movies" [(ngModel)]="input" ngModelOptions="{standalone}">
 </div>
+<p>{{input}}</p>
 <div>
 <button type="submit" 
-class="btn btn-success">Search</button>
+class="btn btn-success btn-md">Search</button>
 </div>
 </form>
 <div class="card">
     <p>Search results:</p>
-<p></p>
+    <div class="col-md-4" *ngFor="let movie of movie;let i=index">
+
+                <img *ngIf="movie.poster_path" [src]="'https://image.tmdb.org/t/p/w500'+movie.poster_path" width="200px">
+            <h2>{{movie.title}}</h2>
+            <p>{{movie.release_date}}</p>
+            <a (click)="goToDetails(movie.id)" class="btn btn-primary" type="button">view details</a>
+            </div>
+        
 </div>
 </div>
     </div>

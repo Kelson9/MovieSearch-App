@@ -5,10 +5,10 @@ import {HomeComponent} from './home/home.component';
 import {ViewComponent} from './view/view.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'find',pathMatch:'full'},
+  {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'find',component:FindComponent},
   {path:'home',component:HomeComponent},
-  {path:'view',component:ViewComponent},
+  {path:'movie/:id',component:ViewComponent},
 ];
 
 @NgModule({

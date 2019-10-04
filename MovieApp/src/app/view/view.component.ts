@@ -7,13 +7,13 @@ import { ApiService } from 'src/app/api.service';
 })
 export class ViewComponent implements OnInit {
 movie:[];
-  constructor(private apiservice:ApiService) { }
+  constructor(private apiservice:ApiService){
+     }
 
   ngOnInit() {
     return this.apiservice.getMovies().subscribe((data:any)=>{
       this.movie=data.results;
       console.log(this.movie);
   });
-
 }
 }

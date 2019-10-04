@@ -11,7 +11,7 @@ export class ApiService {
   getMovies(){
     return this.http.get('https://api.themoviedb.org/3/movie/upcoming?api_key=0e175600a982c619f3646375d1e914bb&language=en-US&page=1');
   }
-  search(){
-    return this.http.get('https://api.themoviedb.org/3/search/movie?api_key=0e175600a982c619f3646375d1e914bb&language=en-US&query=rambo&page=1&include_adult=false');
+  search(movies){
+    return this.http.get('https://api.themoviedb.org/3/search/movie?api_key=0e175600a982c619f3646375d1e914bb&language=en-US&query='+movies+'&page=1&include_adult=false');
   }
 }
