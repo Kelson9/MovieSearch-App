@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
-import {Router} from '@angular/router';
+import {Router,ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-theatremovies',
@@ -10,7 +10,8 @@ import {Router} from '@angular/router';
 export class TheatremoviesComponent implements OnInit {
 movie:[];
   constructor(private apiservice:ApiService,
-    private router:Router) { }
+    private router:Router,
+    private active:ActivatedRoute) { }
 
   ngOnInit() {
     return this.apiservice.getMovies().subscribe((data:any)=>{
@@ -19,6 +20,6 @@ movie:[];
     });
   }
   goToDetails(movieId:any){
-    this.router.navigate(['/movie/',movieId]);
+    this.router.navigate(['/movie/', movieId]);
   }
 }

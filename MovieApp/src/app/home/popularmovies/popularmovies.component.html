@@ -1,9 +1,9 @@
 <h1>POPULAR MOVIES</h1>
 <div class="col-md-4" *ngFor="let movie of movie;let i=index">
-<div *ngIf="i <3">
+<div *ngIf="i <6">
     <img *ngIf="movie.poster_path" [src]="'https://image.tmdb.org/t/p/w500'+movie.poster_path" width="200px">
 <h2>{{movie.title}}</h2>
 <p>{{movie.release_date}}</p>
-<a (click)="goToDetails(movie.id)" class="btn btn-primary" type="button">view details</a>
+<a (click)="goToDetails(movie.id)" class="btn btn-success">view Details</a>
 </div>
 </div>

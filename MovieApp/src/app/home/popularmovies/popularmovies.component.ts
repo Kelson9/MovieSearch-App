@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
-import {Router} from '@angular/router'; 
+import {Router,ActivatedRoute,Params} from '@angular/router'; 
 @Component({
   selector: 'app-popularmovies',
   templateUrl: './popularmovies.component.html',
@@ -8,17 +8,18 @@ import {Router} from '@angular/router';
 })
 export class PopularmoviesComponent implements OnInit {
 movie:[];
+id:any;
   constructor(private apiService:ApiService,
-    private router:Router) { }
+    private router:Router,
+    private active:ActivatedRoute) { }
 
   ngOnInit() {
-    return this.apiService.getMovie().subscribe((data:any)=>{
+    return this.apiService.getpopular().subscribe((data:any)=>{
       this.movie=data.results;
       console.log(this.movie);
     });
   }
   goToDetails(movieId:any){
-    this.router.navigate(['/movie/',movieId]);
+    this.router.navigate(['/movie/', movieId]);
   }
-
 }
