@@ -1,13 +1,12 @@
 <hr><br>
+<h1>THEATRE MOVIES</h1><br>
 <div class="container">
     <div class="row">
-<h1>THEATRE MOVIES</h1>
-<div class="col-md-4" *ngFor="let movie of movie;let i=index">
-    <div *ngIf="i < 3">
+<div class="col-md-4" *ngFor="let movie of movie">
         <img *ngIf="movie.poster_path" [src]="'https://image.tmdb.org/t/p/w500'+movie.poster_path" width="200px">
     <h2>{{movie.title}}</h2>
     <p>{{movie.release_date}}</p>
     <a (click)="goToDetails(movie.id)" class="btn btn-primary" type="button">view details</a>
     </div>
-    </div></div></div>
+    </div></div>
     
